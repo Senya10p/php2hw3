@@ -13,9 +13,8 @@ if ( isset($_GET['id']) ) { //проверяем на существование
 
         die ('Такой новости не существует');
     }
-
-    $view->display(__DIR__ . '/templates/article.php');
 }
+$view->display(__DIR__ . '/templates/article.php');
 
 $n = \App\Config::instance();
 $n->data['db']['host'];

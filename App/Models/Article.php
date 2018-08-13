@@ -15,7 +15,7 @@ class Article extends Model //Создаём класс Article
 
     protected static $table = 'news'; //используем описание защищённого статического свойства
 
-    public static function findLastArticles(int $lim) //создаём описание метода для поиска последних записей из таблицы news
+    public static function findLast(int $lim) //создаём описание метода для поиска последних записей из таблицы news
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::$table . ' ORDER BY id DESC LIMIT ' . $lim;
@@ -23,15 +23,6 @@ class Article extends Model //Создаём класс Article
         return $db->query( $sql, static::class );
     }
 
-    public function getHeader()
-    {
-        return $this->header;
-    }
-
-    public function getText()
-    {
-        return $this->text;
-    }
 
     /**
      * принимает имя недоступного свойства и если не пустое, возвращает значение по id
